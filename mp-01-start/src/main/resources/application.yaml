@@ -7,8 +7,8 @@ spring:
 
 logging:
  level:
-   com.wang.start.dao.UserMapper: trace
-   com.wang.start.dao.StudentMapper: trace
+   com.wang.start.dao: trace
+
 mybatis-plus:
   mapper-locations:
     - com/wang/start/mapper/*.xml

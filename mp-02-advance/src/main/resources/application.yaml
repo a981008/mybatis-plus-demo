@@ -7,8 +7,13 @@ spring:
 
 logging:
  level:
-   com.wang.start.dao.UserMapper: trace
-   com.wang.start.dao.StudentMapper: trace
+   com.wang.advance.dao: trace
+
+# 以下配置是默认情况
 mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
   mapper-locations:
-    - com/wang/start/mapper/*.xml
+    - com/wang/advance/mapper/*.xml

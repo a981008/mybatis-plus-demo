@@ -1,8 +1,10 @@
 # 简介
-本项目是对官方教程视频的演示<br/>
+本项目是对官方教程视频的演示
+
 对视频演示代码做了点修改
 
-**基本知识**
+**前置知识**
+* SpringBoot
 * Mybatis
 * Lambda 语法
 
@@ -14,7 +16,8 @@
 *   [官方教程视频 - 实现简单权限管理](https://www.imooc.com/learn/1294)
 
 # 一、入门
-对应的子模块为 [`mp-p1-start`](mp-01-start)
+对应的子模块为 [`mp-01-start`](mp-01-start)
+
 所需的 SQL：[在这](mp-01-start/start.sql)
 
 所有演示事例均在 [test](mp-01-start/src/test) 目录下的 `com.wang.start` 包中
@@ -25,3 +28,12 @@
 *   `AR` 对应第 6 章
 *   `service` 对应第 7 章
 
+# 二、进阶
+对应的子模块为 [`mp-02-advance`](mp-02-advance)
+
+所需的 SQL：[在这](mp-02-advance/advance.sql)
+
+所有演示事例均在 [test](mp-02-advance/src/test) 目录下的 `com.wang.advance` 包中
+
+* `LogicDeleteTest` 对应第 2 章
+*  `AutoFillTest` 对应第 3 章
