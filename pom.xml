@@ -17,6 +17,12 @@
 
     <packaging>pom</packaging>
 
+    <modules>
+        <module>mp-01-start</module>
+        <module>mp-02-advance</module>
+    </modules>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -54,6 +60,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
