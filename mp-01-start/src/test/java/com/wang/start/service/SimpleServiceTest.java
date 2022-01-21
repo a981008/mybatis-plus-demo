@@ -2,10 +2,8 @@ package com.wang.start.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.wang.start.bean.User;
-import com.wang.start.select.ChainWrapperSelectTest;
-import com.wang.start.sevice.impl.UserServiceImpl;
+import com.wang.start.sevice.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Service 演示
@@ -26,7 +23,7 @@ import java.util.List;
 @SpringBootTest
 public class SimpleServiceTest {
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
 
     /**
      * 名字中包含雨并且年龄小于 40

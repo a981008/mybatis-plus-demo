@@ -3,6 +3,7 @@ package com.wang.start.service;
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.wang.start.bean.User;
 import com.wang.start.select.ChainWrapperSelectTest;
+import com.wang.start.sevice.UserService;
 import com.wang.start.sevice.impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +28,7 @@ import java.util.List;
 @SpringBootTest
 public class ChainServiceTest {
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
 
     /**
      * @see ChainWrapperSelectTest#selectByLambdaChainWrapperTest()
