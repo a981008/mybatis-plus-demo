@@ -6,6 +6,8 @@ import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.SqlSource;
 
 /**
+ * 自定义 SQL
+ *
  * @author Wang
  * @since 2022/1/22
  */

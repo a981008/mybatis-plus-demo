@@ -40,3 +40,4 @@
 * `AutoFillTest` 对应第 3 章
 * `OptimisticLockTest` 对应第 4 章
 * `PerformanceTest` 对应第 5 章
+* `InjectTest` 对应第 8 章

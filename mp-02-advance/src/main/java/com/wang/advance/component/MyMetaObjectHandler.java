@@ -25,6 +25,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         if (metaObject.hasSetter(UPDATE_TIME)) {
+            System.out.println(LocalDateTime.now());
             this.strictUpdateFill(metaObject, UPDATE_TIME, LocalDateTime.class, LocalDateTime.now());
         }
     }

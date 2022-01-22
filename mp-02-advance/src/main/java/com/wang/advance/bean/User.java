@@ -25,6 +25,7 @@ public class User {
     /**
      * 年龄
      */
+    @TableField(fill = FieldFill.UPDATE)
     private Integer age;
     /**
      * 邮箱
