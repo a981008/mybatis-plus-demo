@@ -1,9 +1,6 @@
 package com.wang.advance.bean;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -50,6 +47,7 @@ public class User {
     /**
      * 版本号
      */
+    @Version
     private Integer version;
     /**
      * 逻辑删除标识（0.未删除，1.已删除）

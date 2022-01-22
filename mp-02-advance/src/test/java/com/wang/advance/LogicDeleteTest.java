@@ -26,7 +26,7 @@ public class LogicDeleteTest {
     private UserMapper userMap;
 
     /**
-     * delete 变为了 update
+     * 逻辑删除 delete 变为了 update
      */
     @Test
     public void deleteByIdTest() {

@@ -10,10 +10,11 @@
 
 **官方链接**
 
-*   [官方快速入门](https://baomidou.com/pages/24112f/#%E7%89%B9%E6%80%A7)
-*   [官方教程视频 - 入门](https://www.imooc.com/learn/1130)
-*   [官方教程视频 - 进阶](https://www.imooc.com/learn/1171)
-*   [官方教程视频 - 实现简单权限管理](https://www.imooc.com/learn/1294)
+* [官方快速入门](https://baomidou.com/pages/24112f/#%E7%89%B9%E6%80%A7)
+* [官方演示事例](https://github.com/baomidou/mybatis-plus-samples)  
+* [官方教程视频 - 入门](https://www.imooc.com/learn/1130)
+* [官方教程视频 - 进阶](https://www.imooc.com/learn/1171)
+* [官方教程视频 - 实现简单权限管理](https://www.imooc.com/learn/1294)
 
 # 一、入门
 对应的子模块为 [`mp-01-start`](mp-01-start)
@@ -36,4 +37,6 @@
 所有演示事例均在 [test](mp-02-advance/src/test) 目录下的 `com.wang.advance` 包中
 
 * `LogicDeleteTest` 对应第 2 章
-*  `AutoFillTest` 对应第 3 章
+* `AutoFillTest` 对应第 3 章
+* `OptimisticLockTest` 对应第 4 章
+* `PerformanceTest` 对应第 5 章

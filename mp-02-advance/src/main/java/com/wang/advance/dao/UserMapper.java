@@ -13,7 +13,7 @@ import java.util.List;
  * @author Wang
  * @since 2022/1/22
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends MyMapper<User> {
     @Select("select * from user ${ew.customSqlSegment}")
     List<User> mySelectAll(@Param(Constants.WRAPPER) Wrapper<User> wrapper);
 }

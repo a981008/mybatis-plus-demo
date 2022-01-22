@@ -14,4 +14,12 @@
     <name>mp-02-advance</name>
 
     <description>Demo project for Spring Boot</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>3.9.1</version>
+        </dependency>
+    </dependencies>
 </project>
