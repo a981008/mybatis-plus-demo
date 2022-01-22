@@ -2,6 +2,8 @@ package com.wang.project.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -13,10 +15,10 @@ import java.io.Serializable;
  * @author Wang
  * @since 2022-01-22
  */
+@Accessors(chain = true)
+@Data
 public class Resource implements Serializable {
-
     private static final long serialVersionUID = 1L;
-
     /**
      * 主键
      */
@@ -53,66 +55,4 @@ public class Resource implements Serializable {
      */
     private Integer sort;
 
-    public Long getResourceId() {
-        return resourceId;
-    }
-
-    public void setResourceId(Long resourceId) {
-        this.resourceId = resourceId;
-    }
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
-    public String getResourceName() {
-        return resourceName;
-    }
-
-    public void setResourceName(String resourceName) {
-        this.resourceName = resourceName;
-    }
-    public Integer getResourceType() {
-        return resourceType;
-    }
-
-    public void setResourceType(Integer resourceType) {
-        this.resourceType = resourceType;
-    }
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-    public Integer getSort() {
-        return sort;
-    }
-
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
-
-    @Override
-    public String toString() {
-        return "Resource{" +
-            "resourceId=" + resourceId +
-            ", parentId=" + parentId +
-            ", resourceName=" + resourceName +
-            ", resourceType=" + resourceType +
-            ", url=" + url +
-            ", code=" + code +
-            ", sort=" + sort +
-        "}";
-    }
 }

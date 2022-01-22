@@ -3,6 +3,9 @@ package com.wang.project.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 
 /**
@@ -13,6 +16,8 @@ import java.io.Serializable;
  * @author Wang
  * @since 2022-01-22
  */
+@Accessors(chain = true)
+@Data
 @TableName("role_resource")
 public class RoleResource implements Serializable {
 
@@ -33,35 +38,4 @@ public class RoleResource implements Serializable {
      * 资源id
      */
     private Long resourceId;
-
-    public Long getRoleResourceId() {
-        return roleResourceId;
-    }
-
-    public void setRoleResourceId(Long roleResourceId) {
-        this.roleResourceId = roleResourceId;
-    }
-    public Long getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
-    }
-    public Long getResourceId() {
-        return resourceId;
-    }
-
-    public void setResourceId(Long resourceId) {
-        this.resourceId = resourceId;
-    }
-
-    @Override
-    public String toString() {
-        return "RoleResource{" +
-            "roleResourceId=" + roleResourceId +
-            ", roleId=" + roleId +
-            ", resourceId=" + resourceId +
-        "}";
-    }
 }

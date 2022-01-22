@@ -95,3 +95,6 @@ alter  table role_resource add constraint FK_role_resource_role_id foreign key (
 alter  table role_resource add constraint FK_role_rerce_resourc_idD2D9 foreign key (resource_id) references `resource`(resource_id);
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+INSERT INTO `customer`(`customer_id`, `real_name`, `sex`, `age`, `email`, `phone`, `address`, `create_time`, `modified_time`, `create_account_id`, `modified_account_id`, `deleted`) VALUES (1, '卢本伟', '男', 18, 'lbw@qq.com', '13212311334', '广州市天河区', '2019-01-11 14:20:20', NULL, NULL, NULL, 0);
+INSERT INTO `customer`(`customer_id`, `real_name`, `sex`, `age`, `email`, `phone`, `address`, `create_time`, `modified_time`, `create_account_id`, `modified_account_id`, `deleted`) VALUES (2, '董伟', '男', 22, 'dw@pp.com', '15112331151', '广州市黄埔区', '2012-01-11 14:20:20', NULL, NULL, NULL, 0);
