@@ -20,8 +20,13 @@
     <modules>
         <module>mp-01-start</module>
         <module>mp-02-advance</module>
+        <module>mp-03-project</module>
     </modules>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <mybatis-plus.version>3.5.0</mybatis-plus.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -39,7 +44,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.0</version>
+            <version>${mybatis-plus.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->

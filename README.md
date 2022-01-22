@@ -14,7 +14,7 @@
 * [官方演示事例](https://github.com/baomidou/mybatis-plus-samples)  
 * [官方教程视频 - 入门](https://www.imooc.com/learn/1130)
 * [官方教程视频 - 进阶](https://www.imooc.com/learn/1171)
-* [官方教程视频 - 实现简单权限管理](https://www.imooc.com/learn/1294)
+* [官方教程视频 - 实战 - 实现简单权限管理](https://www.imooc.com/learn/1294)
 
 # 一、入门
 对应的子模块为 [`mp-01-start`](mp-01-start)
@@ -41,3 +41,8 @@
 * `OptimisticLockTest` 对应第 4 章
 * `PerformanceTest` 对应第 5 章
 * `InjectTest` 对应第 8 章
+
+# 三、实战
+对应的子模块为 [`mp-03-project`](mp-03-project)
+
+静态网页和 SQL 在子模块的[素材](mp-03-project/素材)目录下

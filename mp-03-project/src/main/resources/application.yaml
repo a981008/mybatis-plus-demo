@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 88888888
+  thymeleaf:
+    # 开发时为 false，上线再改为 true
+    cache: false
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto # 自增主键
+  mapper-locations: com/wang/project/mapper/xml/*.xml
+  type-aliases-package: com.wang.project.entity
+logging:
+  level:
+    com.wang.project.mapper: trace
