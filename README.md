@@ -45,4 +45,4 @@
 # 三、实战
 对应的子模块为 [`mp-03-project`](mp-03-project)
 
-静态网页和 SQL 在子模块的[素材](mp-03-project/素材)目录下
+所需的 SQL：[在这](mp-03-project/project.sql)

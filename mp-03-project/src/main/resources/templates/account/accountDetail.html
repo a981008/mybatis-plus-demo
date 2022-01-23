@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/layui/css/layui.css}">
+</head>
+<body>
+<div class="layui-form" th:object="${account}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-block">
+            <div class="layui-form-mid" th:text="*{username}"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">真实姓名</label>
+        <div class="layui-input-block">
+            <div class="layui-form-mid" th:text="*{realName}"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">角色</label>
+        <div class="layui-input-block" >
+            <div class="layui-form-mid" th:text="*{roleName}"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">性别</label>
+        <div class="layui-input-block">
+            <div class="layui-form-mid" th:text="*{sex}"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">邮箱</label>
+        <div class="layui-input-block">
+            <div class="layui-form-mid" th:text="*{email}"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">创建时间</label>
+        <div class="layui-form-mid" th:text="*{createTime}"></div>
+    </div>
+    <div class="layui-form-item" th:if="${not #strings.isEmpty(account.createAccountName)}">
+        <label class="layui-form-label">创建者</label>
+        <div class="layui-form-mid" th:text="*{createAccountName}"></div>
+    </div>
+    <div class="layui-form-item" th:if="${not #strings.isEmpty(account.modifiedTime)}">
+        <label class="layui-form-label">修改时间</label>
+        <div class="layui-form-mid" th:text="*{modifiedTime}"></div>
+    </div>
+    <div class="layui-form-item" th:if="${not #strings.isEmpty(account.modifiedAccountName)}">
+        <label class="layui-form-label">修改者</label>
+        <div class="layui-form-mid" th:text="*{modifiedAccountName}"></div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn layui-btn-primary" onclick="layer.close(layer.index)">关闭</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,11 +1,19 @@
 package com.wang.project.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.crypto.digest.MD5;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wang.project.dto.LoginDTO;
 import com.wang.project.entity.Account;
 import com.wang.project.mapper.AccountMapper;
 import com.wang.project.service.IAccountService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.wang.project.vo.AccountDetailVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -38,5 +46,39 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         }
 
         return new LoginDTO().setPath(path).setError(error).setAccount(account);
+    }
+
+
+    @Override
+    public IPage<Account> accountPage(Page<Account> page, Wrapper<Account> wrapper) {
+        return this.baseMapper.accountPage(page, wrapper);
+    }
+
+    @Override
+    public Account getById(Long id) {
+        LambdaQueryWrapper<Account> wrapper = Wrappers.lambdaQuery();
+        wrapper.eq(Account::getAccountId, id);
+        IPage<Account> page = this.baseMapper.accountPage(new Page<>(1,1), wrapper);
+        return page.getRecords().get(0);
+    }
+
+    @Override
+    public AccountDetailVO accountDetailById(Long accountId) {
+        AccountDetailVO accountDetailVO = new AccountDetailVO();
+
+        Account account = this.getById(accountId);
+        BeanUtils.copyProperties(account, accountDetailVO);
+
+        Long createAccountId = account.getCreateAccountId();
+        if (ObjectUtil.isNotNull(createAccountId)) {
+            accountDetailVO.setCreateAccountName(this.baseMapper.selectById(createAccountId).getRealName());
+        }
+
+        Long modifiedAccountId = account.getModifiedAccountId();
+        if (ObjectUtil.isNotNull(modifiedAccountId)) {
+            accountDetailVO.setModifiedAccountName(this.baseMapper.selectById(modifiedAccountId).getRealName());
+        }
+
+        return accountDetailVO;
     }
 }

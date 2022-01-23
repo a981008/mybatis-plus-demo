@@ -25,38 +25,38 @@ public class BaseEntityMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         // 创建时间自动填充
-        if (metaObject.hasSetter(BaseEntity.CREATE_TIME) && getFieldValByName(BaseEntity.CREATE_TIME, metaObject) == null) {
+        if (metaObject.hasSetter(BaseEntity.CREATE_TIME) && ObjectUtil.isNull(getFieldValByName(BaseEntity.CREATE_TIME, metaObject))) {
             this.strictInsertFill(metaObject, BaseEntity.CREATE_TIME, LocalDateTime.class, LocalDateTime.now());
         }
-        /// 创建人自动填充
+        // 创建人自动填充
         if (metaObject.hasSetter(BaseEntity.CREATE_ACCOUNT_ID)
-                && ObjectUtil.isNotNull(getFieldValByName(BaseEntity.CREATE_ACCOUNT_ID, metaObject))) {
+                && ObjectUtil.isNull(getFieldValByName(BaseEntity.CREATE_ACCOUNT_ID, metaObject))) {
 
             Account account = (Account) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())
                     .getAttribute("account", RequestAttributes.SCOPE_SESSION);
 
             if (ObjectUtil.isNotNull(account)) {
-                this.strictInsertFill(metaObject, BaseEntity.CREATE_TIME, Long.class, account.getCreateAccountId());
+                this.strictInsertFill(metaObject, BaseEntity.CREATE_ACCOUNT_ID, Long.class, account.getAccountId());
             }
-
         }
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         // 修改时间自动填充
-        if (metaObject.hasSetter(BaseEntity.MODIFIED_TIME) && getFieldValByName(BaseEntity.MODIFIED_TIME, metaObject) == null) {
+        if (metaObject.hasSetter(BaseEntity.MODIFIED_TIME) && ObjectUtil.isNull(getFieldValByName(BaseEntity.MODIFIED_TIME, metaObject))) {
             this.strictUpdateFill(metaObject, BaseEntity.MODIFIED_TIME, LocalDateTime.class, LocalDateTime.now());
         }
-        /// 修改人自动填充
+        // 修改人自动填充
         if (metaObject.hasSetter(BaseEntity.MODIFIED_ACCOUNT_ID)
-                && ObjectUtil.isNotNull(getFieldValByName(BaseEntity.MODIFIED_ACCOUNT_ID, metaObject))) {
+                && ObjectUtil.isNull(getFieldValByName(BaseEntity.MODIFIED_ACCOUNT_ID, metaObject))) {
 
             Account account = (Account) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())
                     .getAttribute("account", RequestAttributes.SCOPE_SESSION);
 
             if (ObjectUtil.isNotNull(account)) {
-                this.strictUpdateFill(metaObject, BaseEntity.MODIFIED_ACCOUNT_ID, Long.class, account.getModifiedAccountId());
+                System.out.println(account.getAccountId());
+                this.strictUpdateFill(metaObject, BaseEntity.MODIFIED_ACCOUNT_ID, Long.class, account.getAccountId());
             }
         }
     }

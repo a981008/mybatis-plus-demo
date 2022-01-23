@@ -70,7 +70,7 @@ public class CustomerController {
     }
 
     /**
-     * 进入新增页
+     * 进入更新页
      */
     @GetMapping("/toUpdate/{id}")
     public String toUpdate(@PathVariable Long id, Model model) {

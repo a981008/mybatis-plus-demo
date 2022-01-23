@@ -46,13 +46,13 @@
         <label class="layui-form-label">创建时间</label>
         <div class="layui-form-mid" th:text="*{createTime}"></div>
     </div>
-    <div class="layui-form-item" th:if="${not #strings.isEmpty(customer.modifiedTime)}">
-        <label class="layui-form-label">修改时间</label>
-        <div class="layui-form-mid" th:text="*{modifiedTime}"></div>
-    </div>
     <div class="layui-form-item" th:if="${not #strings.isEmpty(customer.createAccountName)}">
         <label class="layui-form-label">创建者</label>
         <div class="layui-form-mid" th:text="*{createAccountName}"></div>
+    </div>
+    <div class="layui-form-item" th:if="${not #strings.isEmpty(customer.modifiedTime)}">
+        <label class="layui-form-label">修改时间</label>
+        <div class="layui-form-mid" th:text="*{modifiedTime}"></div>
     </div>
     <div class="layui-form-item" th:if="${not #strings.isEmpty(customer.modifiedAccountName)}">
         <label class="layui-form-label">修改者</label>

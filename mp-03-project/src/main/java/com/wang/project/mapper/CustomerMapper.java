@@ -20,5 +20,5 @@ import java.util.List;
  * @since 2022-01-22
  */
 public interface CustomerMapper extends BaseMapper<Customer> {
-    List<CustomerDetailVO> listDetail(@Param(Constants.WRAPPER) Wrapper<Customer> wrapper);
+
 }
