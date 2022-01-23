@@ -31,18 +31,20 @@
 
 </div>
 
-<button class="layui-btn">增加</button>
+<button class="layui-btn" onclick="toAdd()">增加</button>
 
-<table id="customerList"></table>
+<table id="customerList" lay-filter="test"></table>
 
 <script th:src="@{/webjars/layui/layui.all.js}"></script>
 <script th:src="@{/webjars/jquery/jquery.js}"></script>
-<script th:src="@{/js/customer/customer.js}"></script>
+<script th:src="@{/js/customer.js}"></script>
+<script th:src="@{/js/common.js}"></script>
+
 
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" >删除</a>
 </script>
 </body>
 </html>

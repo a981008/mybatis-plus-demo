@@ -19,4 +19,14 @@ public class ResultUtils {
         data.put("records", page.getRecords());
         return Result.success(data);
     }
+
+    /**
+     * 相应信息
+     */
+    public static Result<String> buildResult(boolean isSuccess) {
+        if (isSuccess) {
+            return Result.success(null);
+        }
+        return Result.failed("操作失败");
+    }
 }

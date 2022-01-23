@@ -39,6 +39,7 @@ public class LoginController {
             , HttpSession session
             , RedirectAttributes attributes
             , Model model) {
+
         LoginDTO loginDTO = accountService.login(username, password);
         String error = loginDTO.getError();
         if (error == null) { // 成功
@@ -49,8 +50,9 @@ public class LoginController {
         } else { // 失败
             attributes.addFlashAttribute("error", error);
         }
-        return loginDTO.getPath();
+        return  loginDTO.getPath();
     }
+
 
     /**
      * 登出

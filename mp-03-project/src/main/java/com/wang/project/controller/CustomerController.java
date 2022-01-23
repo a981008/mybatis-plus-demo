@@ -1,22 +1,19 @@
 package com.wang.project.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wang.project.commonn.Result;
 import com.wang.project.commonn.ResultUtils;
 import com.wang.project.entity.Customer;
 import com.wang.project.service.ICustomerService;
+import com.wang.project.vo.CustomerDetailVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -41,6 +38,9 @@ public class CustomerController {
         return "customer/customerList";
     }
 
+    /**
+     * 列表数据
+     */
     @GetMapping("/list")
     @ResponseBody
     public Result<Map<String, Object>> list(String realName, String phone, Long page, Long limit) {
@@ -50,5 +50,60 @@ public class CustomerController {
                         .like(StringUtils.isNotBlank(phone), Customer::getPhone, phone)
                         .orderByDesc(Customer::getCustomerId).page(new Page<>(page, limit))
         );
+    }
+
+    /**
+     * 进入新增页
+     */
+    @GetMapping("/toAdd")
+    public String toAdd() {
+        return "customer/customerAdd";
+    }
+
+    /**
+     * 新增用户
+     */
+    @PostMapping
+    @ResponseBody
+    public Result<String> add(@RequestBody Customer customer) {
+        return ResultUtils.buildResult(customerService.save(customer));
+    }
+
+    /**
+     * 进入新增页
+     */
+    @GetMapping("/toUpdate/{id}")
+    public String toUpdate(@PathVariable Long id, Model model) {
+        Customer customer = customerService.getById(id);
+        model.addAttribute("customer", customer);
+        return "customer/customerUpdate";
+    }
+
+    /**
+     * 修改用户
+     */
+    @PutMapping
+    @ResponseBody
+    public Result<String> update(@RequestBody Customer customer) {
+        return ResultUtils.buildResult(customerService.updateById(customer));
+    }
+
+    /**
+     * 删除用户
+     */
+    @DeleteMapping("/{customerId}")
+    @ResponseBody
+    public Result<String> delete(@PathVariable Long customerId) {
+        return ResultUtils.buildResult(customerService.removeById(customerId));
+    }
+
+    /**
+     * 进入详情页
+     */
+    @GetMapping("/toDetail/{id}")
+    public String toDetail(@PathVariable Long id, Model model) {
+        CustomerDetailVO customerDetailVO = customerService.customerDetailById(id);
+        model.addAttribute("customer", customerDetailVO);
+        return "customer/customerDetail";
     }
 }
