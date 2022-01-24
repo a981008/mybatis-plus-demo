@@ -3,6 +3,7 @@ package com.wang.project.service;
 import com.wang.project.entity.Resource;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.wang.project.vo.ResourceVO;
+import com.wang.project.vo.TreeVO;
 
 import java.util.List;
 
@@ -20,4 +21,16 @@ public interface IResourceService extends IService<Resource> {
      * @return 资源列表
      */
     List<ResourceVO> listResourceByRoleId(Long roleId);
+
+    /**
+     * 列表，查询系统资源，给前端渲染
+     */
+    List<TreeVO> listResource();
+
+    /**
+     * 详情或修改时，查询系统资源，给前端渲染
+     */
+    List<TreeVO> updateResource(Long roleId);
+
+    List<TreeVO> detailResource(Long roleId);
 }

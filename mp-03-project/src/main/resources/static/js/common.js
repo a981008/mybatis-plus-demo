@@ -18,8 +18,11 @@ function openLayer(url, title) {
 /**
  * 公共提交
  */
-function submit(filter, type) {
+function submit(filter, type, func) {
     layui.form.on('submit(' + filter + ')', function (data) {
+        if (typeof(func) != 'undefined') {
+            func(data.field);
+        }
         $.ajax({
             url: data.form.action,
             async: false,
@@ -44,6 +47,7 @@ function submit(filter, type) {
  * 公共删除
  */
 function myDelete(url) {
+    let br = false;
 //向服务端发送删除指令
     $.ajax({
         url: url,
@@ -52,9 +56,13 @@ function myDelete(url) {
         success: function (res) {
             if (res.code === 200) {
                 query();
+                br = true;
             } else {
                 layer.alert(res.msg);
             }
         }
     });
+
+    return br;
 }
+

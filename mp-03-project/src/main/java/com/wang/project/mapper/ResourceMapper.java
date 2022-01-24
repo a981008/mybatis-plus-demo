@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.wang.project.entity.Resource;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wang.project.vo.ResourceVO;
+import com.wang.project.vo.TreeVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -24,4 +25,6 @@ public interface ResourceMapper extends BaseMapper<Resource> {
      * @return 资源列表
      */
     List<ResourceVO> listResource(@Param(Constants.WRAPPER) Wrapper<Resource> wrapper);
+
+    List<TreeVO> listResourceByRoleId(@Param(Constants.WRAPPER) Wrapper<Resource> wrapper, @Param("roleId")Long roleId);
 }

@@ -1,34 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="../layui/css/layui.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/layui/css/layui.css}">
 </head>
+
 <body>
-	<div class="layui-form">
-		<div class="layui-form-item">
-			<label class="layui-form-label">角色名称</label>
-			<div class="layui-input-block">
-				<div class="layui-form-mid"></div>
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">备注</label>
-			<div class="layui-input-block">
-				<div class="layui-form-mid"></div>
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">资源</label>
-			<div class="layui-input-block">
-				<div id="resource"></div>
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<div class="layui-input-block">
-				<button type="button" class="layui-btn layui-btn-primary" onclick="layer.close(layer.index)">关闭</button>
-			</div>
-		</div>
-	</div>
+<div class="layui-form" th:object="${role}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">角色名称</label>
+        <div class="layui-input-block">
+            <div class="layui-form-mid" th:text="*{roleName}"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <div class="layui-form-mid"  th:text="*{remark}"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">创建时间</label>
+        <div class="layui-form-mid" th:text="*{createTime}"></div>
+    </div>
+    <div class="layui-form-item" th:if="${not #strings.isEmpty(role.createAccountName)}">
+        <label class="layui-form-label">创建者</label>
+        <div class="layui-form-mid" th:text="*{createAccountName}"></div>
+    </div>
+    <div class="layui-form-item" th:if="${not #strings.isEmpty(role.modifiedTime)}">
+        <label class="layui-form-label">修改时间</label>
+        <div class="layui-form-mid" th:text="*{modifiedTime}"></div>
+    </div>
+    <div class="layui-form-item" th:if="${not #strings.isEmpty(role.modifiedAccountName)}">
+        <label class="layui-form-label">修改者</label>
+        <div class="layui-form-mid" th:text="*{modifiedAccountName}"></div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">资源</label>
+        <div class="layui-input-block">
+            <div id="resource"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn layui-btn-primary" onclick="layer.close(layer.index)">关闭</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

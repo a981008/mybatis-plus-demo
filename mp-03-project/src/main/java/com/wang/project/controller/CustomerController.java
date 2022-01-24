@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wang.project.commonn.Result;
 import com.wang.project.commonn.ResultUtils;
 import com.wang.project.entity.Customer;
+import com.wang.project.query.CustomerPageQuery;
 import com.wang.project.service.ICustomerService;
 import com.wang.project.vo.CustomerDetailVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,12 @@ public class CustomerController {
      */
     @GetMapping("/list")
     @ResponseBody
-    public Result<Map<String, Object>> list(String realName, String phone, Long page, Long limit) {
+    public Result<Map<String, Object>> list(CustomerPageQuery query) {
+        String realName = query.getRealName();
+        String phone = query.getPhone();
+        Long page = query.getPage();
+        Long limit = query.getLimit();
+
         return ResultUtils.buildPageResult(
                 customerService.lambdaQuery()
                         .like(StringUtils.isNotBlank(realName), Customer::getRealName, realName)

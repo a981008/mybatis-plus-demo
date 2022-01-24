@@ -1,6 +1,7 @@
 package com.wang.project.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,6 +9,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -36,4 +38,10 @@ public class Role extends BaseEntity {
      * 备注
      */
     private String remark;
+
+    /**
+     * 被选中的资源
+     */
+    @TableField(exist = false)
+    private List<Long> resourceIds;
 }
